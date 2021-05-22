@@ -1,1 +1,1 @@
-# tracking-sdk-androd
+# tracking-sdk-android
