@@ -43,7 +43,8 @@ Tips:
         }
 	}
 
-    **Detect which couriers defined in your account match a tracking number**
+**Detect which couriers defined in your account match a tracking number**
+
     //Do this call whenever you want
     String params = "{'sandbox':true,'tracking_number': 'EA152563254CN'}";
     JsonObject json = JsonParser.parseString(params).getAsJsonObject();
@@ -64,7 +65,7 @@ Tips:
     }
 
 
-    **Post a tracking to your account**
+**Post a tracking to your account**
 
 	//First we have to create a Tracking params
 	String params = "{'sandbox':true,'tracking_number': 'EA152563254CN', 'carrier_code': 'china-ems'}";
@@ -87,7 +88,7 @@ Tips:
         }
     }
 
-**Summary of Connection API Methods with all the api and Methods**
+**Summary of Connection API Methods with all the apiMethods**
 
     public void onConfirmApi(TextView textView) {
         //Other business codes start //
