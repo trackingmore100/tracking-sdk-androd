@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".MainActivity"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_height="wrap_content"
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:background="@color/orange_200"
+            android:minHeight="?attr/actionBarSize"
+            android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="@string/app_name"
+                app:navigationIcon="@drawable/ic_logo"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:onClick="onLogoClick"
+                app:logoDescription="@string/app_name">
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+            android:id="@+id/threeFirstNumbers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="7">
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:hint="@string/select_api">
+
+            <AutoCompleteTextView
+                    android:id="@+id/api_list"
+                    android:hint="@string/select_api"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+                android:id="@+id/confirm_button"
+                android:text="@string/request"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="5dp"
+                android:layout_width="0dp"
+                android:background="@drawable/custom_popup_background"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textAllCaps="false"
+                />
+    </LinearLayout>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+        <TextView
+                android:padding="@dimen/activity_horizontal_margin"
+                android:id="@+id/tv_main"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/fab_transformation_scrim_behavior"
+                app:srcCompat="@drawable/ic_info_outline"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</LinearLayout>
