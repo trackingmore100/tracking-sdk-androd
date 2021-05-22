@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements AsyncTaskComplete
             "couriersDetect", "createTrackings", "getTrackings", "modifyInfo", "deleteTrackings", "stopUpdate", "remote", "status", "transitTime", "realtime", "airCargo", "getUserInfo"};
     private static final String DocumentUrl = "https://www.trackingmore.com/v3/api-index";
 
-    static final String API_KEY = "a61d6204-6477-4f6d-93ec-86c4f872fb6b";
+    static final String APIKEY = "test";
     private static final String TAG = "MainActivity";
     TextView tv_main;
 
@@ -57,26 +57,26 @@ public class MainActivity extends AppCompatActivity implements AsyncTaskComplete
             case "couriersList":
                 params = "{\"sandbox\":true,\"lang\":\"cn\"}";
                 json = JsonParser.parseString(params).getAsJsonObject();
-                new ConnectionAPI(API_KEY, ConnectionAPIMethods.resolve(method), this, json).execute();
+                new ConnectionAPI(APIKEY, ConnectionAPIMethods.resolve(method), this, json).execute();
                 break;
             case "modifyCourier":
                 params = "{'sandbox':true,'tracking_number': 'EA152563254CN', 'courier_code': 'china-ems', 'new_courier_code': 'china-post'}";
                 json = JsonParser.parseString(params).getAsJsonObject();
-                new ConnectionAPI(API_KEY, ConnectionAPIMethods.resolve(method), this, json).execute();
+                new ConnectionAPI(APIKEY, ConnectionAPIMethods.resolve(method), this, json).execute();
                 break;
             case "couriersDetect":
                 params = "{'sandbox':true,'tracking_number': 'EA152563254CN'}";
                 json = JsonParser.parseString(params).getAsJsonObject();
-                new ConnectionAPI(API_KEY, ConnectionAPIMethods.resolve(method), this, json).execute();
+                new ConnectionAPI(APIKEY, ConnectionAPIMethods.resolve(method), this, json).execute();
                 break;
             case "createTrackings":
-                new ConnectionAPI(API_KEY, ConnectionAPIMethods.resolve(method), this, json).execute();
+                new ConnectionAPI(APIKEY, ConnectionAPIMethods.resolve(method), this, json).execute();
                 break;
             case "getTrackings":
-                new ConnectionAPI(API_KEY, ConnectionAPIMethods.resolve(method), this, json).execute();
+                new ConnectionAPI(APIKEY, ConnectionAPIMethods.resolve(method), this, json).execute();
                 break;
             case "modifyInfo":
-                new ConnectionAPI(API_KEY, ConnectionAPIMethods.resolve(method), this, json).execute();
+                new ConnectionAPI(APIKEY, ConnectionAPIMethods.resolve(method), this, json).execute();
                 break;
             case "deleteTrackings":
                 break;
