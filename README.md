@@ -11,7 +11,7 @@ Quick Start
 --------------
 
 Tips:
-
+- When sandbox and lang are included in your parameters, it will be automatically added to the parameters. If sandbox is true, your request will not require the correct APIKEY, but the results returned by each interface will be fixed
 - Declare your API KEY as a static final variable
 - Every time you want to make a request, create and execute it right away.
 - Don't reuse request.
@@ -26,43 +26,6 @@ Tips:
 - All the returns are a com.google.gson.JsonObject class, you can add that in your grade dependencies:
   implementation'com.google.code.gson:gson:2.8.6'
 
-**Get a list of supported couriers**
-
-    static final String APIKEY ="test";
-
-    //We can call the method from onCreated
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        new ConnectionAPI(APIKEY, ConnectionAPIMethods.couriersList, this).execute();
-    }
-    
-    //define the method onTaskComplete in your Activity
-    public void onTaskComplete(ConnectionAPI result) {
-    
-        //Control the exception of the result
-       if (result.getException() != null) {
-            Log.v(TAG, "Log.v output log info", result.getException());
-            String message = result.getException().getMessage();
-            Toast toast = Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-            toast.show();
-            tv_main.setText(message);
-            tv_main.setTextSize(14);
-            tv_main.setTextColor(ContextCompat.getColor(this, R.color.black));
-            return;
-        }
-        //Every method has a number associate, couriersList is 0
-        //method Enum Code
-        System.out.println(result.getMethod().getNumberMethod());
-        //prettyJson and deal request result
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String finalResult = gson.toJson(result.getReturn());
-
-        tv_main.setText(finalResult);
-        tv_main.setTextSize(14);
-        tv_main.setTextColor(ContextCompat.getColor(this, R.color.black));
-    }
 
     **Get a list of the couriers in Trackingmore**
 
